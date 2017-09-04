@@ -1,0 +1,17 @@
+db."$tableName".find({
+#foreach ($mapEntry in $whereConditionsMap.entrySet())
+    #if($velocityCount == $mapSize)
+    	"$mapEntry.key":"$mapEntry.value"
+    #else
+    	"$mapEntry.key":"$mapEntry.value",
+    #end
+#end
+}, {
+#foreach($column in $columns)
+	#if($velocityCount == $size)
+		"$column": 1
+	#else
+		"$column": 1,
+	#end
+#end
+});

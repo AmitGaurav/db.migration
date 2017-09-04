@@ -1,0 +1,9 @@
+db."$tableName".find({}, {
+#foreach($column in $columns)
+	#if($velocityCount == $size)
+		"$column": 1
+	#else
+		"$column": 1,
+	#end
+#end
+});
